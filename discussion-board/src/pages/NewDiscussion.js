@@ -7,16 +7,16 @@ const NewDiscussion = () => {
     const [content, setContent] = useState('');
     const navigate = useNavigate();
 
-    // Function to handle the form submission
+    // Function to handle the form submission (took help from ChatGPT)
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent page reload on form submission
+        e.preventDefault(); 
 
         // Retrieve existing discussions from localStorage, or initialize with an empty array
         const storedDiscussions = JSON.parse(localStorage.getItem('discussions')) || [];
 
         // New discussion object with unique ID
         const newDiscussion = {
-            id: Date.now(), // Use timestamp as unique ID
+            id: Date.now(),
             title,
             content,
         };
@@ -24,10 +24,10 @@ const NewDiscussion = () => {
         // Add new discussion to the existing list
         const updatedDiscussions = [...storedDiscussions, newDiscussion];
         
-        // Save the updated list of discussions back to localStorage
+        // Save the updated list of discussions 
         localStorage.setItem('discussions', JSON.stringify(updatedDiscussions));
 
-        // Navigate to the discussions page after submission
+        // Navigate to the discussions page after submission (Help from ChatGPT)
         navigate('/discussions');
     };
 

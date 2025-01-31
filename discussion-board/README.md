@@ -86,4 +86,4 @@ These components enable users to create, view, like, and dislike discussions.
 
 
 ## Credits
-Developed by [Your Name/Team]. Some code logic was inspired by AI assistance and external documentation.
+Developed by Kul. Some code logic was inspired by AI assistance and external documentation.
