@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../component/navbar';
 
 const Discussions = () => {
     // State to manage discussions, likes, and dislikes
@@ -7,7 +8,7 @@ const Discussions = () => {
     const [likes, setLikes] = useState({});
     const [dislikes, setDislikes] = useState({});
 
-    // Load discussions, likes, and dislikes from localStorage when the component mounts
+    // Load discussions, likes, and dislikes 
     useEffect(() => {
         const storedDiscussions = JSON.parse(localStorage.getItem('discussions')) || [];
         setDiscussions(storedDiscussions);
@@ -18,7 +19,7 @@ const Discussions = () => {
         setDislikes(storedDislikes);
     }, []);
 
-    // Handle like action (reset dislike if already disliked)
+    // Handle like action (Took help from ChatGPT)
     const handleLike = (id) => {
         if (dislikes[id]) {
             const updatedDislikes = { ...dislikes };
@@ -32,7 +33,7 @@ const Discussions = () => {
         localStorage.setItem('likes', JSON.stringify(updatedLikes));
     };
 
-    // Handle dislike action (reset like if already liked)
+    // Handle dislike action (Took help from ChatGPT)
     const handleDislike = (id) => {
         if (likes[id]) {
             const updatedLikes = { ...likes };
@@ -47,6 +48,8 @@ const Discussions = () => {
     };
 
     return (
+        <>
+        <Navbar/>
         <div className="container mt-5 mb-5 p-4 shadow-lg rounded" style={{ backgroundColor: '#f3e5f5' }}>
             <h1 className="text-center text-primary mb-4" style={{ fontSize: '2.2rem', fontWeight: '600' }}>
                 Discussions
@@ -83,7 +86,11 @@ const Discussions = () => {
                 ))}
             </ul>
         </div>
+        
+        </>
     );
 };
+
+
 
 export default Discussions;
